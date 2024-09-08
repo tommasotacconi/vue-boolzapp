@@ -1,7 +1,10 @@
 /* Utilities */
-/* var tag padding */
+/* var for tag padding */
 :root {
+  /* navbar padding */
   --nav-pd: 5px;
+  /* section-padding */
+  --sec-pd-xs: 10px;
   --sec-pd-sm: 15px;
   --sec-pd-md: 30px;
   --sec-pd-lg: 40px;
@@ -22,6 +25,7 @@
 
 /* general padding */
 :root {
+  --pd-xs: 5px;
   --pd-sm: 10px;
   --pd-md: 20px;
   --pd-lg: 30px;
@@ -61,11 +65,11 @@
 }
 
 /* type of border */
-.dashed-border{
+.dashed-br{
   border: 3px dashed orange
 }
 
-.dashed-border-alternative {
+.dashed-br-other {
   border: 1px dashed hotpink;
 }
 
@@ -83,12 +87,12 @@
   border: 0;
 }
 
-.btn-hov:hover {
+/* .btn-hov:hover {
   background-color: #3b7cff;
   border: 2px solid whitesmoke;
   padding: 5.4px 10.4px;
   cursor: pointer;
-}
+} */
 
 .btn-big {
   font-size: 20px;
@@ -154,6 +158,14 @@
   display: flex;
 }
 
+.flex-justc-center {
+  justify-content: center;
+}
+
+.flex-al-center {
+  align-items: center;
+}
+
 .flex-row-align-center {
   display: flex;
   align-items: center;
@@ -191,19 +203,11 @@
   justify-content: space-around;
 }
 
-.f-justc-center {
-  justify-content: center;
-}
-
-.f-alcenter {
-  align-items: center;
-}
-
 .f-end {
   justify-content: flex-end;
 }
 
-.f-wrap {
+.flex-wrap {
   flex-wrap: wrap;
 }
 
@@ -212,8 +216,12 @@
   flex-direction: column;
 }
 
-.f-item {
+.flex-item {
   flex-basis: 200px;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
 }
 
 .gap-sm {
@@ -261,15 +269,15 @@
   border-bottom: 1.6px solid black;
 }
 
-.bdcolor-bianco {
+.bdcolor-white {
   background-color: #fff;
 }
 
-.bdcolor-bianco-fumo {
+.bdcolor-whitesmoke {
   background-color: whitesmoke;
 }
 
-.bdcolor-cielo {
+.bdcolor-sky {
   background-color: #a4c8f7;
 }
 
@@ -277,7 +285,7 @@
   background-color: cadetblue;
 }
 
-.bdcolor-blu-tenue {
+.bdcolor-cornflowerblue {
   background-color: cornflowerblue ;
 }
 
@@ -289,7 +297,7 @@
   background-color: black;
 }
 
-.bdcolor-blu-ardesia {
+.bdcolor-slateblue {
   background-color: slateblue;
 }
 
@@ -297,7 +305,7 @@
   background-color: silver;
 }
 
-.bdcolor-pesca {
+.bdcolor-peachpuff {
   background-color: peachpuff;
 }
 
@@ -317,11 +325,11 @@
   background-color: #73231f;
 }
 
-.bdcolor-marrone {
+.bdcolor-brown {
   background-color: brown;
 }
 
-.bdcolor-grigio-chiaro {
+.bdcolor-light-gray {
   background-color: #efefef;
 }
 

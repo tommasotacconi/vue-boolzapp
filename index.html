@@ -16,18 +16,157 @@
     <!-- Bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Google fonts -->
-     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Style -->
     <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-      <!-- vue cdn -->
+      <!-- Vue cdn -->
       <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-      <!-- applicazione con vue -->
+      <!-- Application of vue -->
       <div id="app">
-        
+        <div class="container-xl container-xl-settings flex-row-spb bdcolor-peachpuff">
+          <!-- Section for contacts list of Boolzapp -->
+          <section id="contacts" class="bdcolor-argento">
+
+            <header class="bdcolor-whitesmoke flex-row-spb flex-al-center">
+              <div class="user-info d-flex flex-al-center">
+                <div class="user-img-box">
+                  <img class="bdcolor-deep-blue" src="img/avatar_io.png" alt="">
+                </div>
+                <span class="user-name">Tommaso</span>
+              </div>
+              <nav>
+                <i class="bi bi-three-dots-vertical"></i>
+              </nav>
+            </header>
+
+            <main class="flex-column">
+              <!-- Box with notifications setting of Boolzapp -->
+              <div id="notifications-setting" class="d-flex flex-al-center bdcolor-cornflowerblue">
+                <span>
+                  Ricevi notifiche
+                </span>
+              </div>
+              <!-- Form to look for contacts -->
+              <search class="bdcolor-whitesmoke">
+                <form action="">
+                  <input type="text" value="" placeholder="Cerca o inizia chat">
+                </form>
+              </search>
+              <!-- Wrapper for contacts list -->
+              <div id="chats-list" class="bdcolor-peachpuff">
+                <div class="dashed-br-other chat d-flex ">
+                  <div class="contact-img-box flex-row-center">
+                    <img class="bdcolor-cornflowerblue contact-img" src="img/avatar_1.png" alt="">
+                  </div>
+                  <div class="contact-name-lastmsg">
+                    <span class="contact-name">Caterina</span><br>
+                    <p class="contact-lastmsg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem, libero sit amet maxime nemo ipsum delectus consequatur officiis tempora, accusamus, aspernatur minima quisquam ad cum sed. Provident, accusantium quidem?</p>
+                  </div>
+                  <div class="msg-time">
+                    10.00
+                  </div>
+                </div>
+              </div>              
+            </main>
+
+          </section>
+          <!-- Section with chat -->
+          <section id="current-chat" class="bdcolor-sky flex-grow-1">
+
+            <header class="bdcolor-whitesmoke flex-row-spb flex-al-center">
+              <div class="person-info d-flex flex-al-center">
+                <div class="user-img-box">
+                  <img class="bdcolor-deep-blue user-img" src="img/avatar_1.png" alt="">
+                </div>
+                <span>Niccolò</span>
+              </div>
+              <nav>
+                <i class="bi bi-three-dots-vertical"></i>
+              </nav>
+            </header>
+
+            <!-- Main with messages of the current chat -->
+            <main class="bdcolor-slateblue">
+              <div class="dashed-br msgs-wrapper">
+                <div class="msg-row contact d-flex">
+                  <div class="msg">
+                    Ciao!
+                  </div>
+                </div>
+                <div class="msg-row user d-flex">
+                  <div class="msg">
+                    Ciao!
+                  </div>
+                </div>
+                <div class="msg-row user d-flex">
+                  <div class="msg">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
+                  </div>
+                </div>
+                <div class="msg-row user d-flex">
+                  <div class="msg">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
+                  </div>
+                </div>
+                <div class="msg-row user d-flex">
+                  <div class="msg">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
+                  </div>
+                </div>
+                <div class="msg-row user d-flex">
+                  <div class="msg">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
+                  </div>
+                </div>
+                <div class="msg-row user d-flex">
+                  <div class="msg">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
+                  </div>
+                </div>
+                <div class="msg-row user d-flex">
+                  <div class="msg">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
+                  </div>
+                </div>
+                <div class="msg-row user d-flex">
+                  <div class="msg">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
+                  </div>
+                </div>
+                <div class="msg-row contact d-flex">
+                  <div class="msg">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
+                  </div>
+                </div>
+              </div>
+            </main>
+
+            <!-- Footer with input to send message -->
+            <footer class="bdcolor-brown d-flex">
+              <div class="btn-box">
+                <button class="btn-hov">
+                  <i class="fa-regular fa-face-smile"></i>
+                </button>
+              </div>
+              <form action="">
+                <input type="text" placeholder="Scrivi un messaggio">
+              </form>
+              <div class="btn-box">
+                <button class="btn-hov">
+                  <i class="fa-solid fa-microphone"></i>
+                </button>
+              </div>
+            </footer>
+
+          </section>
+          
+        </div>
       </div>
 
       <!-- javascript connection -->
