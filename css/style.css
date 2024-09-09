@@ -190,6 +190,7 @@ i.fa-regular {
   }
 
   .contact-name-lastmsg {
+    height: 55px;
     flex-grow: 1;
     overflow: clip;
 
