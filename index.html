@@ -66,13 +66,13 @@
               </search>
               <!-- Wrapper for contacts list -->
               <div id="chats-list" class="">
-                <div class="chat d-flex ">
+                <div class="chat d-flex" v-for="contact in contacts">
                   <div class="contact-img-box flex-row-center">
-                    <img class="bdcolor-cornflowerblue contact-img" src="img/avatar_1.png" alt="">
+                    <img class="bdcolor-cornflowerblue contact-img" :src="contact.avatar" alt="">
                   </div>
                   <div class="contact-name-lastmsg">
-                    <span class="contact-name">Caterina</span><br>
-                    <p class="contact-lastmsg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem, libero sit amet maxime nemo ipsum delectus consequatur officiis tempora, accusamus, aspernatur minima quisquam ad cum sed. Provident, accusantium quidem?</p>
+                    <span class="contact-name">{{ contact.name }}</span><br>
+                    <p class="contact-lastmsg">{{ getLastMessage(contact.messages) }}</p>
                   </div>
                   <div class="lastmsg-time">
                     10.00

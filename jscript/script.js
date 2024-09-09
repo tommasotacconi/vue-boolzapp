@@ -1,6 +1,6 @@
 // FASE DI PREPARAZIONE
 // Data
-contacts: [
+const contacts = [
   {
     name: 'Michele',
     avatar: './img/avatar_1.png',
@@ -172,7 +172,12 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        message: 'Hello Vue!'
+        contacts,
       }
+    },
+    methods: {
+      getLastMessage (contactMessages) {
+        return contactMessages[contactMessages.length - 1].message
+      },
     }
   }).mount('#app')
