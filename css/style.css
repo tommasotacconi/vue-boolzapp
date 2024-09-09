@@ -143,6 +143,7 @@ i.fa-regular {
     line-height: var(--notification-status);
     text-align: center;
     border-radius: var(--notification-status);
+    color: #6495ed; /* cornflowerblue */
     background-color: #fff;
     margin-right: 20px;
   }
@@ -254,7 +255,7 @@ i.fa-regular {
 .msg-time {
   color: var(--time-stamp-color);
   position: absolute;
-  bottom: 5px;
+  bottom: 2px;
   right: 10px;
   font-size: 0.5rem;
 }
