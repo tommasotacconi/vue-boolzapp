@@ -173,11 +173,21 @@ const { createApp } = Vue
     data() {
       return {
         contacts,
+        currentChatIndex: 0,
       }
     },
     methods: {
       getLastMessage (contactMessages) {
-        return contactMessages[contactMessages.length - 1].message
+        return contactMessages[contactMessages.length - 1];
+      },
+      getMessages (contactObj) {
+        return contactObj.messages;
+      },
+      getMessageDate (contactMessage) {
+        return contactMessage.date.substring(11, 16);
+      },
+      setCurrentChatIndex (chatIndex) {
+        this.currentChatIndex = chatIndex;
       },
     }
   }).mount('#app')

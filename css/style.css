@@ -42,6 +42,7 @@ header {
   font-weight: 600;
   font-size: 0.85rem;
   padding: var(--pd-sm);
+  background-color: #e8e8e8;
 
   img {
     width: var(--profile-img-sm);
@@ -77,7 +78,7 @@ form {
 input {
   width: 100%;
   padding: 0 20px;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 img {
@@ -132,6 +133,8 @@ i.fa-regular {
   height: 100%;
 }
 
+
+/* In section #contacts */
 #notifications-setting {
   height: var(--notifications-setting-h);
   padding: var(--pd-md);
@@ -219,6 +222,13 @@ i.fa-regular {
   background-color: #eee;
 }
 
+
+/* In section #current-chat */
+#current-chat header,
+#current-chat footer {
+  border-left: 1px solid #dedede;
+}
+
 #current-chat main{
   height: calc(100% - var(--header-h) - var(--footer-h));
   background-image: url(../img/mine.png);
@@ -235,7 +245,7 @@ i.fa-regular {
   margin-bottom: 15px;
 }
 
-.user {
+.sent {
   justify-content: end;
 }
 
@@ -248,8 +258,8 @@ i.fa-regular {
   position: relative;
 }
 
-.user .msg {
-  background-color: lightgreen;
+.sent .msg {
+  background-color: #abf2ab;
 }
 
 .msg-time {
@@ -262,6 +272,7 @@ i.fa-regular {
 
 #current-chat footer {
   height: var(--footer-h);
+  background-color: #e8e8e8;
 }
 
 .btn-box {

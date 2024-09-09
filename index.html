@@ -33,7 +33,7 @@
           <!-- Section for contacts list of Boolzapp -->
           <section id="contacts" class="bdcolor-white">
 
-            <header class="bdcolor-light-gray flex-row-spb flex-al-center">
+            <header class="flex-row-spb flex-al-center">
               <div class="user-info d-flex flex-al-center">
                 <div class="user-img-box">
                   <img class="bdcolor-deep-blue" src="img/avatar_io.png" alt="">
@@ -66,16 +66,16 @@
               </search>
               <!-- Wrapper for contacts list -->
               <div id="chats-list" class="">
-                <div class="chat d-flex" v-for="contact in contacts">
+                <div class="chat d-flex" :class="{ current: contactIndex === currentChatIndex }" v-for="(contact, contactIndex) in contacts" @click="setCurrentChatIndex(contactIndex)">
                   <div class="contact-img-box flex-row-center">
                     <img class="bdcolor-cornflowerblue contact-img" :src="contact.avatar" alt="">
                   </div>
                   <div class="contact-name-lastmsg">
                     <span class="contact-name">{{ contact.name }}</span><br>
-                    <p class="contact-lastmsg">{{ getLastMessage(contact.messages) }}</p>
+                    <p class="contact-lastmsg">{{ getLastMessage(contact.messages).message }}</p>
                   </div>
                   <div class="lastmsg-time">
-                    10.00
+                    {{ getMessageDate(getLastMessage(contact.messages)) }}
                   </div>
                 </div>
               </div>              
@@ -85,12 +85,12 @@
           <!-- Section with chat -->
           <section id="current-chat" class="bdcolor-sky flex-grow-1">
 
-            <header class="bdcolor-light-gray flex-row-spb flex-al-center">
-              <div class="person-info d-flex flex-al-center">
-                <div class="user-img-box">
-                  <img class="bdcolor-deep-blue user-img" src="img/avatar_1.png" alt="">
+            <header class="flex-row-spb flex-al-center">
+              <div class="contact-info d-flex flex-al-center">
+                <div class="contact-img-box">
+                  <img class="bdcolor-deep-blue user-img" :src="contacts[0].avatar" alt="">
                 </div>
-                <span>Niccolò</span>
+                <span class="contact-name">{{ contacts[0].name }}</span>
               </div>
               <nav class="d-flex">
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -102,17 +102,17 @@
             <!-- Main with messages of the current chat -->
             <main>
               <div class="msgs-wrapper">
-                <div class="msg-row contact d-flex">
+                <div class="msg-row d-flex" :class="msg.status" v-for="msg in getMessages(contacts[currentChatIndex])">
                   <div class="msg">
-                    <span class="msg-text">Ciao!</span>
-                    <div class="msg-time">12.00</div>
+                    <span class="msg-text">{{ msg.message }}</span>
+                    <div class="msg-time">{{ msg.date.substring(11, 16) }}</div>
                   </div>
                 </div>
               </div>
             </main>
 
             <!-- Footer with input to send message -->
-            <footer class="bdcolor-light-gray d-flex">
+            <footer class="d-flex">
               <div class="btn-box d-flex flex-al-center">
                 <button class="emoji">
                   <i class="fa-regular fa-face-smile"></i>
