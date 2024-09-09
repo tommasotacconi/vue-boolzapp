@@ -5,36 +5,67 @@
   box-sizing: border-box;
 }
 
-/* Principal element var (dim, short for dimension, expressed as fraction of father) */
+/* Principal element var (dim, short for dimension, expressed as fraction of father). When no indication about what type of linear length is expressed this refers to both width and height */
 :root {
   --container-h: 95vh;
   --contacts-dim: 0.4;
   --header-h: 50px;
-  --user-img-dim: 35px;
+  --profile-img-sm: 35px;
+  --profile-img-bg: calc(var(--profile-img-sm) * 1.4);
+  --header-button: 35px;
   --notifications-setting-h: 90px;
+  --notification-status: calc(var(--profile-img-sm) * 1.1);
   --search-input-h: 30px;
   --chat-h: 80px;
   --footer-h: 50px;
   --msg-x-dim: 0.4;
 }
 
+/* Color choice */
+:root {
+  --time-stamp-color: #999;
+}
+
 /* Generics */
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Lato';
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  background: linear-gradient(#009587 15%, #d9dad3 15%);
 }
 
 header {
   height: var(--header-h);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   padding: var(--pd-sm);
 
   img {
-    width: var(--user-img-dim);
-    height: var(--user-img-dim);
-    border-radius: calc(var(--user-img-dim) / 2);
+    width: var(--profile-img-sm);
+    height: var(--profile-img-sm);
+    border-radius: calc(var(--profile-img-sm) / 2);
     margin-right: 15px;
+  }
+
+  button {
+    width: var(--header-button);
+    height: var(--header-button);
+    border: 0;
+    border-radius: 50%;
+  }
+  
+  button:hover {
+    background-color: lightgray;
+    cursor: pointer;
+  }
+  
+  i.fa-solid,
+  i.fa-regular {
+    font-size: 1.1rem;
+    filter: invert(0.5);
   }
 }
 
@@ -50,6 +81,19 @@ input {
 }
 
 img {
+  display: block;
+}
+
+button {
+  background-color: transparent;
+}
+
+button:not(:last-child) {
+  margin-right: 2px;
+}
+
+i.fa-solid,
+i.fa-regular {
   display: block;
 }
 
@@ -90,13 +134,37 @@ img {
 
 #notifications-setting {
   height: var(--notifications-setting-h);
-  padding: var(--pd-sm);
+  padding: var(--pd-md);
   flex-shrink: 0;
+
+  .notification-status {
+    width: var(--notification-status);
+    height: var(--notification-status);
+    line-height: var(--notification-status);
+    text-align: center;
+    border-radius: var(--notification-status);
+    background-color: #fff;
+    margin-right: 20px;
+  }
+
+  .notification-status i {
+    display: inline-block;
+  }
+
+  a {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+
+  a:hover {
+    color: #fff;
+  }
 }
 
 #contacts search input {
   height: var(--search-input-h);
   border-radius: 5px;
+  font-size: 0.8rem;
 }
 
 #chats-list {
@@ -107,6 +175,7 @@ img {
 .chat {
   height: var(--chat-h);
   padding: 10px 5px 10px 15px;
+  border-bottom: 1px solid #eee;
   
   .contact-img-box {
     flex-basis: 20%;
@@ -114,9 +183,9 @@ img {
   }
 
   .contact-img-box img {
-    width: calc(var(--user-img-dim) * 1.2);
-    height: calc(var(--user-img-dim) * 1.2);
-    border-radius: calc(var(--user-img-dim) * 1.2 / 2);
+    width: var(--profile-img-bg);
+    height: var(--profile-img-bg);
+    border-radius: calc(var(--profile-img-bg) / 2);
     margin-right: 15px;
   }
 
@@ -127,20 +196,31 @@ img {
     .contact-name {
       font-weight: 600;
     }
+
+    .contact-lastmsg {
+      color: var(--time-stamp-color);
+    }
   }
   
-  .msg-time {
+  .lastmsg-time {
     flex-basis: 10%;
     flex-shrink: 0;
 
     font-size: 0.7rem;
     /* padding: 5px 10px; */
     text-align: end;
+    color: #999;
   }
+}
+
+.current {
+  background-color: #eee;
 }
 
 #current-chat main{
   height: calc(100% - var(--header-h) - var(--footer-h));
+  background-image: url(../img/mine.png);
+  background-position: center;
 }
 
 .msgs-wrapper {
@@ -157,15 +237,25 @@ img {
   justify-content: end;
 }
 
-.user .msg {
-  background-color: lightgreen;
-}
-
 .msg {
   width: calc(100% * var(--msg-x-dim));
   padding: 10px 15px;
   border-radius: 10px;
   background-color: white;
+
+  position: relative;
+}
+
+.user .msg {
+  background-color: lightgreen;
+}
+
+.msg-time {
+  color: var(--time-stamp-color);
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 0.5rem;
 }
 
 #current-chat footer {
@@ -175,17 +265,29 @@ img {
 .btn-box {
   padding: var(--pd-xs);
 
-  button {
-    height: 100%;
-    padding: 0 10px;
-    background-color: transparent;
-    border: 2px solid transparent;
+  i {
+    font-size: 1.3rem;
+    filter: invert(0.3);
+  }
+
+  button.emoji {
+    width: var(--header-button);
+    height: var(--header-button);
+    border: 0;
+    border-radius: 50%;
     margin: 0 20px;
   }
 
-  i {
-    font-size: 1.3rem;
-    vertical-align: middle;
+  button.emoji:hover {
+    background-color: lightgray;
+    cursor: pointer;
+  }
+
+  button.microphone {
+    height: 100%;
+    padding: 0 10px;
+    border: 2px solid transparent;
+    margin: 0 20px;
   }
 
   .btn-hov:hover {

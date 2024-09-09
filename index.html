@@ -29,28 +29,34 @@
 
       <!-- Application of vue -->
       <div id="app">
-        <div class="container-xl container-xl-settings flex-row-spb bdcolor-peachpuff">
+        <div class="container-xl container-xl-settings flex-row-spb">
           <!-- Section for contacts list of Boolzapp -->
-          <section id="contacts" class="bdcolor-argento">
+          <section id="contacts" class="bdcolor-white">
 
-            <header class="bdcolor-whitesmoke flex-row-spb flex-al-center">
+            <header class="bdcolor-light-gray flex-row-spb flex-al-center">
               <div class="user-info d-flex flex-al-center">
                 <div class="user-img-box">
                   <img class="bdcolor-deep-blue" src="img/avatar_io.png" alt="">
                 </div>
                 <span class="user-name">Tommaso</span>
               </div>
-              <nav>
-                <i class="bi bi-three-dots-vertical"></i>
+              <nav class="d-flex">
+                <button><i class="fa-solid fa-circle-notch"></i></button>
+                <button><i class="fa-solid fa-message"></i></button>
+                <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
               </nav>
             </header>
 
             <main class="flex-column">
               <!-- Box with notifications setting of Boolzapp -->
               <div id="notifications-setting" class="d-flex flex-al-center bdcolor-cornflowerblue">
-                <span>
-                  Ricevi notifiche
-                </span>
+                <div class="notification-status">
+                  <i class="fa-solid fa-bell-slash"></i>
+                </div>
+                <div class="notification-control">
+                  <div class="notification-advice">Ricevi notifiche di nuovi messaggi</div>
+                  <a href="#">Attiva notifiche desktop</a>
+                </div>
               </div>
               <!-- Form to look for contacts -->
               <search class="bdcolor-whitesmoke">
@@ -59,8 +65,8 @@
                 </form>
               </search>
               <!-- Wrapper for contacts list -->
-              <div id="chats-list" class="bdcolor-peachpuff">
-                <div class="dashed-br-other chat d-flex ">
+              <div id="chats-list" class="">
+                <div class="chat d-flex ">
                   <div class="contact-img-box flex-row-center">
                     <img class="bdcolor-cornflowerblue contact-img" src="img/avatar_1.png" alt="">
                   </div>
@@ -68,7 +74,7 @@
                     <span class="contact-name">Caterina</span><br>
                     <p class="contact-lastmsg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio rem, libero sit amet maxime nemo ipsum delectus consequatur officiis tempora, accusamus, aspernatur minima quisquam ad cum sed. Provident, accusantium quidem?</p>
                   </div>
-                  <div class="msg-time">
+                  <div class="lastmsg-time">
                     10.00
                   </div>
                 </div>
@@ -79,78 +85,36 @@
           <!-- Section with chat -->
           <section id="current-chat" class="bdcolor-sky flex-grow-1">
 
-            <header class="bdcolor-whitesmoke flex-row-spb flex-al-center">
+            <header class="bdcolor-light-gray flex-row-spb flex-al-center">
               <div class="person-info d-flex flex-al-center">
                 <div class="user-img-box">
                   <img class="bdcolor-deep-blue user-img" src="img/avatar_1.png" alt="">
                 </div>
                 <span>Niccolò</span>
               </div>
-              <nav>
-                <i class="bi bi-three-dots-vertical"></i>
+              <nav class="d-flex">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button><i class="fa-solid fa-paperclip"></i></button>
+                <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
               </nav>
             </header>
 
             <!-- Main with messages of the current chat -->
-            <main class="bdcolor-slateblue">
-              <div class="dashed-br msgs-wrapper">
+            <main>
+              <div class="msgs-wrapper">
                 <div class="msg-row contact d-flex">
                   <div class="msg">
-                    Ciao!
-                  </div>
-                </div>
-                <div class="msg-row user d-flex">
-                  <div class="msg">
-                    Ciao!
-                  </div>
-                </div>
-                <div class="msg-row user d-flex">
-                  <div class="msg">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
-                  </div>
-                </div>
-                <div class="msg-row user d-flex">
-                  <div class="msg">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
-                  </div>
-                </div>
-                <div class="msg-row user d-flex">
-                  <div class="msg">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
-                  </div>
-                </div>
-                <div class="msg-row user d-flex">
-                  <div class="msg">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
-                  </div>
-                </div>
-                <div class="msg-row user d-flex">
-                  <div class="msg">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
-                  </div>
-                </div>
-                <div class="msg-row user d-flex">
-                  <div class="msg">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
-                  </div>
-                </div>
-                <div class="msg-row user d-flex">
-                  <div class="msg">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
-                  </div>
-                </div>
-                <div class="msg-row contact d-flex">
-                  <div class="msg">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque inventore minus, accusamus saepe illo similique debitis cum molestiae eaque quisquam, accusantium nobis unde voluptate nemo explicabo id. Pariatur, quisquam perferendis?
+                    <span class="msg-text">Ciao!</span>
+                    <div class="msg-time">12.00</div>
                   </div>
                 </div>
               </div>
             </main>
 
             <!-- Footer with input to send message -->
-            <footer class="bdcolor-brown d-flex">
-              <div class="btn-box">
-                <button class="btn-hov">
+            <footer class="bdcolor-light-gray d-flex">
+              <div class="btn-box d-flex flex-al-center">
+                <button class="emoji">
                   <i class="fa-regular fa-face-smile"></i>
                 </button>
               </div>
@@ -158,7 +122,7 @@
                 <input type="text" placeholder="Scrivi un messaggio">
               </form>
               <div class="btn-box">
-                <button class="btn-hov">
+                <button class="microphone btn-hov">
                   <i class="fa-solid fa-microphone"></i>
                 </button>
               </div>
