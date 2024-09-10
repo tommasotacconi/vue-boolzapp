@@ -347,8 +347,11 @@ const { createApp } = Vue
       searchedContacts () {
         // Verifica se l'utente non sta cercando
         if (!this.isUserSearching) return undefined
+        // Crea un nuovo array di oggetti con i soli contatti cercati con il metodo filter
         const filteredContacts = this.contacts.filter((contact, contactIndex) => {
+          // Costruisce una costante in cui inserire il nome di contatto attualmente considerato grazie ai parametri di filter
           const comparedString = contact.name.slice(0, this.searchedName.length).toLowerCase();
+          // Compara il nome ricercato con quello nell'array di contatti senza tenere conto delle maiuscole, è sensibile però allo spazio tra nome e cognome
           return comparedString == this.searchedName.toLowerCase();
         }, this.searchedName);
         // Valida il risultato della ricerca al fine di restituire un array con i nomi desiderati o uno vuoto
@@ -374,6 +377,7 @@ const { createApp } = Vue
       setCurrentChatIndex (chatIndex) {
         this.currentChatIndex = chatIndex;
       },
+      // Funzione di creazione di un oggetto messaggio con tre proprietà date in input
       newMessage: (date, message, status) => newObjMessage = {date, message, status},
       // Funzione di aggiunta del messaggio per quando richiamerà setTimeout()
       addMessage (msg) {
@@ -382,6 +386,7 @@ const { createApp } = Vue
       },
       // Funzione che permette di ottenere una stringa con ora e minuti separati da un due punti a partire da un oggetto Date()
       stampTime: dateObj => dateObj.toLocaleString().split(', ').join(' '),
+      // Funzione per l'invio del messaggio dall'input in chat
       sendMessage () {
         // Recupera il tempo all'interno di una stringa nel formato del prorpio computer
         const d = this.stampTime(new Date());
@@ -390,6 +395,7 @@ const { createApp } = Vue
         // Inserisce l'oggetto appena creato nel'array 'messages' della chat corrente
         this.addMessage(newMessage);
       },
+      // Funzione che crea un messaggio automatico ritardato rispetto all'invio dalla persona con cui si è in chat
       automaticContactReply (newReceivedMessage) {
         // Creo un oggetto idoneo in cui salvare tutti i dati sul messaggio in input da inviare
         const newMessage = this.newMessage('', newReceivedMessage, 'received');

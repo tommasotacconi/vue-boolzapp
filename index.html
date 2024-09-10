@@ -67,7 +67,7 @@
                 </search>
               </form>
               <!-- Wrapper for contacts list -->
-              <div id="chats-list" class="">
+              <div id="chats-list" class="" v-if="contactsToShow !== undefined">
                 <div class="chat d-flex" :class="{ current: contactIndex === currentChatIndex }" v-for="(contact, contactIndex) in contactsToShow" @click="setCurrentChatIndex(contactIndex)">
                   <div class="contact-img-box flex-row-center">
                     <img class="bdcolor-cornflowerblue contact-img" :src="contact.avatar" alt="">
