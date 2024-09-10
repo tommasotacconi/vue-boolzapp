@@ -62,13 +62,13 @@
               <form action="">
                 <search class="bdcolor-whitesmoke">
                   <form action="">
-                    <input type="text" value="" placeholder="Cerca o inizia chat">
+                    <input type="text" value="" placeholder="Cerca o inizia chat" v-model="searchedName">
                   </form>
                 </search>
               </form>
               <!-- Wrapper for contacts list -->
               <div id="chats-list" class="">
-                <div class="chat d-flex" :class="{ current: contactIndex === currentChatIndex }" v-for="(contact, contactIndex) in contacts" @click="setCurrentChatIndex(contactIndex)">
+                <div class="chat d-flex" :class="{ current: contactIndex === currentChatIndex }" v-for="(contact, contactIndex) in contactsToShow" @click="setCurrentChatIndex(contactIndex)">
                   <div class="contact-img-box flex-row-center">
                     <img class="bdcolor-cornflowerblue contact-img" :src="contact.avatar" alt="">
                   </div>
@@ -103,8 +103,8 @@
 
             <!-- Main with messages of the current chat -->
             <main>
-              <div class="msgs-wrapper">
-                <div class="msg-row d-flex" :class="msg.status" v-for="msg in getMessages(contacts[currentChatIndex])">
+              <div class="msgs-wrapper" v-if="contactsToShow !== undefined">
+                <div class="msg-row d-flex" :class="msg.status" v-for="msg in getMessages(contactsToShow[currentChatIndex])">
                   <div class="msg">
                     <span class="msg-text">{{ msg.message }}</span>
                     <div class="msg-time">{{ msg.date.substring(11, 16) }}</div>

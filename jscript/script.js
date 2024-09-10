@@ -337,7 +337,29 @@ const { createApp } = Vue
         ],
         currentChatIndex: 0,
         inputMessage: '',
+        searchedName: '',
       }
+    },
+    computed: {
+      isUserSearching () {
+        return this.searchedName ? true : false
+      },
+      searchedContacts () {
+        // Verifica se l'utente non sta cercando
+        if (!this.isUserSearching) return undefined
+        const filteredContacts = this.contacts.filter((contact, contactIndex) => {
+          const comparedString = contact.name.slice(0, this.searchedName.length).toLowerCase();
+          return comparedString == this.searchedName.toLowerCase();
+        }, this.searchedName);
+        // Valida il risultato della ricerca al fine di restituire un array con i nomi desiderati o uno vuoto
+        console.log(filteredContacts);
+        if (filteredContacts.length) return filteredContacts;
+        return undefined;
+        ;
+      },
+      contactsToShow () {
+        return !this.isUserSearching ? this.contacts : this.searchedContacts;
+      }, 
     },
     methods: {
       getLastMessage (contactMessages) {
