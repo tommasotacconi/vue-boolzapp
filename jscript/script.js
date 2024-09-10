@@ -352,44 +352,34 @@ const { createApp } = Vue
       setCurrentChatIndex (chatIndex) {
         this.currentChatIndex = chatIndex;
       },
+      newMessage: (date, message, status) => newObjMessage = {date, message, status},
+      // Funzione di aggiunta del messaggio per quando richiamerà setTimeout()
+      addMessage (msg) {
+        this.contacts[this.currentChatIndex].messages.push(msg);
+        console.log(msg.date + ', ' + msg.message);
+      },
+      // Funzione che permette di ottenere una stringa con ora e minuti separati da un due punti a partire da un oggetto Date()
       stampTime: dateObj => dateObj.toLocaleString().split(', ').join(' '),
       sendMessage () {
         // Recupera il tempo all'interno di una stringa nel formato del prorpio computer
-        const d = new Date().toLocaleString().split(', ').join(' ');
-        console.log(d);
+        const d = this.stampTime(new Date());
         // Crea un oggetto con proprietà uguali a quelle degli oggetti degli array 'messages' per memorizzare i dati sul nuovo messaggio inviato dall'utente
-        const newSentMessage = {
-          date: d,
-          message: this.inputMessage,
-          status: 'sent'
-        };
+        const newMessage = this.newMessage(d, this.inputMessage, 'sent');
         // Inserisce l'oggetto appena creato nel'array 'messages' della chat corrente
-        this.contacts[this.currentChatIndex].messages.push(newSentMessage);
+        this.addMessage(newMessage);
       },
       automaticContactReply (newReceivedMessage) {
         // Creo un oggetto idoneo in cui salvare tutti i dati sul messaggio in input da inviare
-        const toAddMsg = {
-          date: '',
-          message: newReceivedMessage,
-          status: 'received'
-        };
-        console.log(toAddMsg);
-        // Funzione di aggiunta del messaggio per quando richiamerà setTimer
-        const addMessage = msg => {
-          this.contacts[this.currentChatIndex].messages.push(msg);
-        };
-        // Dichiara una variabile in cui inserire il tempo a cui viene inviato il messaggio
-        let d;
-        // Ritarda la creazione del messaggio automatico nel corretto array 'messages' di un tempo pari a un secondo
+        const newMessage = this.newMessage('', newReceivedMessage, 'received');
+        // Ritarda la creazione del messaggio in automatico di un certo tempo grazie a setTimeout() e lo inserisce nel corretto array 'messages'
         const delay = setTimeout(() => {
-          d = new Date();
-          console.log(this.stampTime(d))
-          toAddMsg.date = this.stampTime(d);
-          addMessage(toAddMsg);
+          // Registra il tempo a cui è stato effettuato l'invio e lo inserisce nella proprietà apposita dell'oggetto creato all'inizio
+          const d = this.stampTime(new Date());
+          newMessage.date = d;
+          // Aggiunge il nuovo messaggio all'array dei messaggi della chat corrente per mezzo della funzione di aggiunta di messaggio
+          this.addMessage(newMessage);
+          console.log('Messaggio inserito');
         }, 1000);
-        // Aggiunge l'informazione temporale come stringa nell'oggetto creato all'inizio
-        // Aggiunge il nuovo messaggio all'array dei messaggi della chat corrente per mezzo della funzione di aggiunta di messaggio
-        console.log('inserisco il messaggio');
       },
     }
   }).mount('#app')
