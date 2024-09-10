@@ -59,11 +59,13 @@
                 </div>
               </div>
               <!-- Form to look for contacts -->
-              <search class="bdcolor-whitesmoke">
-                <form action="">
-                  <input type="text" value="" placeholder="Cerca o inizia chat">
-                </form>
-              </search>
+              <form action="">
+                <search class="bdcolor-whitesmoke">
+                  <form action="">
+                    <input type="text" value="" placeholder="Cerca o inizia chat">
+                  </form>
+                </search>
+              </form>
               <!-- Wrapper for contacts list -->
               <div id="chats-list" class="">
                 <div class="chat d-flex" :class="{ current: contactIndex === currentChatIndex }" v-for="(contact, contactIndex) in contacts" @click="setCurrentChatIndex(contactIndex)">
@@ -118,8 +120,8 @@
                   <i class="fa-regular fa-face-smile"></i>
                 </button>
               </div>
-              <form action="">
-                <input type="text" placeholder="Scrivi un messaggio">
+              <form action="" @submit.prevent="sendMessage(); automaticContactReply('ok')">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="inputMessage">
               </form>
               <div class="btn-box">
                 <button class="microphone btn-hov">

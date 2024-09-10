@@ -72,7 +72,6 @@ header {
 
 form {
   padding: var(--pd-xs);
-  height: 100%;
 }
 
 input {
@@ -165,7 +164,7 @@ i.fa-regular {
   }
 }
 
-#contacts search input {
+#contacts form search input {
   height: var(--search-input-h);
   border-radius: 5px;
   font-size: 0.8rem;
@@ -196,6 +195,7 @@ i.fa-regular {
   .contact-name-lastmsg {
     height: 55px;
     flex-grow: 1;
+    max-width: 280px;
     overflow: clip;
 
     .contact-name {
