@@ -164,7 +164,7 @@ i.fa-regular {
   }
 }
 
-#contacts form search input {
+#contacts search form input {
   height: var(--search-input-h);
   border-radius: 5px;
   font-size: 0.8rem;
@@ -227,6 +227,12 @@ i.fa-regular {
 #current-chat header,
 #current-chat footer {
   border-left: 1px solid #dedede;
+}
+
+#current-chat header .contact-lstaccess {
+  font-weight: normal;
+  filter: invert(0.5);
+  font-size: 0.7rem;
 }
 
 #current-chat main{

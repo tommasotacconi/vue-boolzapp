@@ -356,9 +356,12 @@ const { createApp } = Vue
         }, this.searchedName);
         // Valida il risultato della ricerca al fine di restituire un array con i nomi desiderati o uno vuoto
         console.log(filteredContacts);
-        if (filteredContacts.length) return filteredContacts;
+        if (filteredContacts.length) {
+          // Setta il 'currentChatIndex' a 0, per rendere possibile renderizzazione della prima chat trovata che può essere anche la sola
+          this.currentChatIndex = 0;
+          return filteredContacts;
+        }
         return undefined;
-        ;
       },
       contactsToShow () {
         return !this.isUserSearching ? this.contacts : this.searchedContacts;

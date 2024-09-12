@@ -59,13 +59,11 @@
                 </div>
               </div>
               <!-- Form to look for contacts -->
-              <form action="">
                 <search class="bdcolor-whitesmoke">
-                  <form action="">
+                  <form action="" @submit.prevent>
                     <input type="text" value="" placeholder="Cerca o inizia chat" v-model="searchedName">
                   </form>
                 </search>
-              </form>
               <!-- Wrapper for contacts list -->
               <div id="chats-list" class="" v-if="contactsToShow !== undefined">
                 <div class="chat d-flex" :class="{ current: contactIndex === currentChatIndex }" v-for="(contact, contactIndex) in contactsToShow" @click="setCurrentChatIndex(contactIndex)">
@@ -88,17 +86,22 @@
           <section id="current-chat" class="bdcolor-sky flex-grow-1">
 
             <header class="flex-row-spb flex-al-center">
-              <div class="contact-info d-flex flex-al-center">
-                <div class="contact-img-box">
-                  <img class="bdcolor-deep-blue user-img" :src="contacts[0].avatar" alt="">
+              <template v-if="contactsToShow !== undefined">
+                <div class="contact-info d-flex flex-al-center">
+                  <div class="contact-img-box">
+                    <img class="bdcolor-deep-blue user-img" :src="contactsToShow[currentChatIndex].avatar" alt="">
+                  </div>
+                  <div class="contact-name-lstaccess">
+                    <span class="contact-name">{{ contactsToShow[currentChatIndex].name }}</span>
+                    <p class="contact-lstaccess">Ultimo accesso alle ore xx.xx</p>
+                  </div>
                 </div>
-                <span class="contact-name">{{ contacts[0].name }}</span>
-              </div>
-              <nav class="d-flex">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                <button><i class="fa-solid fa-paperclip"></i></button>
-                <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
-              </nav>
+                <nav class="d-flex">
+                  <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                  <button><i class="fa-solid fa-paperclip"></i></button>
+                  <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                </nav>
+              </template>
             </header>
 
             <!-- Main with messages of the current chat -->
