@@ -260,6 +260,7 @@ i.fa-regular {
   padding: 10px 15px;
   border-radius: 10px;
   background-color: white;
+  overflow-wrap: break-word;
 
   position: relative;
 }
