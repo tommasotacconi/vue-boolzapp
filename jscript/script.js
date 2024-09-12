@@ -348,12 +348,17 @@ const { createApp } = Vue
         // Verifica se l'utente non sta cercando
         if (!this.isUserSearching) return undefined
         // Crea un nuovo array di oggetti con i soli contatti cercati con il metodo filter
-        const filteredContacts = this.contacts.filter((contact, contactIndex) => {
+        const filteredContacts = this.contacts.reduce((accumulator, contact, contactIndex) => {
           // Costruisce una costante in cui inserire il nome di contatto attualmente considerato grazie ai parametri di filter
           const comparedString = contact.name.slice(0, this.searchedName.length).toLowerCase();
           // Compara il nome ricercato con quello nell'array di contatti senza tenere conto delle maiuscole, è sensibile però allo spazio tra nome e cognome
-          return comparedString == this.searchedName.toLowerCase();
-        }, this.searchedName);
+          if (comparedString == this.searchedName.toLowerCase()) {
+            contact.chatIndex = contactIndex;
+            accumulator.push(contact);
+            console.log(accumulator);            
+          }
+          return accumulator;
+        }, []);
         // Valida il risultato della ricerca al fine di restituire un array con i nomi desiderati o uno vuoto
         console.log(filteredContacts);
         if (filteredContacts.length) {
@@ -384,7 +389,11 @@ const { createApp } = Vue
       newMessage: (date, message, status) => newObjMessage = {date, message, status},
       // Funzione di aggiunta del messaggio per quando richiamerà setTimeout()
       addMessage (msg) {
-        this.contacts[this.currentChatIndex].messages.push(msg);
+        if (!this.isUserSearching) this.contacts[this.currentChatIndex].messages.push(msg);
+        else {
+          const {chatIndex} = this.contactsToShow[this.currentChatIndex]
+          this.contacts[chatIndex].messages.push(msg);
+        }
         console.log(msg.date + ', ' + msg.message);
       },
       // Funzione che permette di ottenere una stringa con ora e minuti separati da un due punti a partire da un oggetto Date()
