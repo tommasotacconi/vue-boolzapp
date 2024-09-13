@@ -406,6 +406,8 @@ const { createApp } = Vue
         const newMessage = this.newMessage(d, this.inputMessage, 'sent');
         // Inserisce l'oggetto appena creato nel'array 'messages' della chat corrente
         this.addMessage(newMessage);
+        // Pulizia campo del messaggio
+        this.inputMessage = '';
       },
       // Funzione che crea un messaggio automatico ritardato rispetto all'invio dalla persona con cui si è in chat
       automaticContactReply (newReceivedMessage) {
